@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Bienvenue sur mon site web personnel</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+	 <div id="bloc_page">
+            <header>
+                <div id="titre_principal">
+                    <div id="titre">
+                        
+                        <h1>Adam's Website</h1>    
+                    </div>
+                    <h2>Etudiant en première année en informatique</h2>
+                </div>
+                
+                <nav>
+                    <ul>
+                        <li><a class="accueil" href="#">Accueil</a></li>
+                        <li><a href="competence.html">CV</a></li>
+                        <li><a href="galerie.html">Galerie</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>  
+            </header>  
+
+                <br><br>
+            <div id="sub_title">
+                <h2> Accueil</h2>
+            </div>
+                <br>
+
+            <div id="banniere_description">
+                    <h1>
+                      <span
+                         class="txt-rotate"
+                         data-period="2000"
+                         data-rotate='[ "Salut je m&apos;appelle Adama KANE!", "Je suis apprenti développeur web.", "Bienvenue sur mon site personnel." ]'></span>
+                    </h1>
+                    
+            </div> 
+
+            <section>
+                <article>
+                    <br>
+                    <h1>Je suis un éléve en première année en Génie Logiciel et Jeune apprenti développeur WEB.</h1>
+                    <p>Ce site WEB est un projet de classe proposé par notre pofesseur de développement WEB <b>Monsieur Mouhamed DIOP</b>.</p> 
+                    <p>Ces présentes pages sont une façon de montrer que nous avons bien assimilé les notions en <b>HTML5</b>, en <b>CSS3</b> et en <b>JavaScript</b> que nous avons appris en classe et en ligne. </p>
+                    <p>Cependant en plus des astuces du prof, nous avons fait beaucoup de recherches sur internet.</p> 
+                    <p>On s'est souvent reféré à <a target="_blank" href="https://openclassrooms.com/fr/courses/1603881-apprenez-a-creer-votre-site-web-avec-html5-et-css3?status=published"><b>OpenClassrooms</b></a>  pour le Design du site mais aussi aux vidéos d'un Youtubeur nommé <a target="_blank" href="https://www.youtube.com/user/grafikarttv"><b>Grafikart</b></a> pour l'interactivité et le contenu des pages.</p>
+                
+                <br><br>
+                </article>
+               
+            </section>  
+
+            <script type="text/javascript">
+        
+                      var TxtRotate = function(el, toRotate, period) {
+                      this.toRotate = toRotate;
+                      this.el = el;
+                      this.loopNum = 0;
+                      this.period = parseInt(period, 10) || 2000;
+                      this.txt = '';
+                      this.tick();
+                      this.isDeleting = false;
+                    };
+
+                    TxtRotate.prototype.tick = function() {
+                      var i = this.loopNum % this.toRotate.length;
+                      var fullTxt = this.toRotate[i];
+
+                      if (this.isDeleting) {
+                        this.txt = fullTxt.substring(0, this.txt.length - 1);
+                      } else {
+                        this.txt = fullTxt.substring(0, this.txt.length + 1);
+                      }
+
+                      this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+                      var that = this;
+                      var delta = 300 - Math.random() * 100;
+
+                      if (this.isDeleting) { delta /= 2; }
+
+                      if (!this.isDeleting && this.txt === fullTxt) {
+                        delta = this.period;
+                        this.isDeleting = true;
+                      } else if (this.isDeleting && this.txt === '') {
+                        this.isDeleting = false;
+                        this.loopNum++;
+                        delta = 500;
+                      }
+
+                      setTimeout(function() {
+                        that.tick();
+                      }, delta);
+                    };
+
+                    window.onload = function() {
+                      var elements = document.getElementsByClassName('txt-rotate');
+                      for (var i=0; i<elements.length; i++) {
+                        var toRotate = elements[i].getAttribute('data-rotate');
+                        var period = elements[i].getAttribute('data-period');
+                        if (toRotate) {
+                          new TxtRotate(elements[i], JSON.parse(toRotate), period);
+                        }
+                      }
+                     
+                      var css = document.createElement("style");
+                      css.type = "text/css";
+                      css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #666 }";
+                      document.body.appendChild(css);
+                    };
+            </script>
+
+            <footer>
+            	 <div id="mes_rs">
+                        <ul>
+
+                            <li>
+                              <a href="mailto:adamakane2258@gmail.com"><img src="images/mail.png">Gmail</a>
+                            </li>
+
+                            <li>
+                              <a target="_blank" href="https://wa.me/221774595136"><img src="images/phone.png">Téléphone</a>
+                            </li>
+                            
+                            <li>
+                               <a target="_blank" href="https://twitter.com/Adamsk75"> <img src="images/twitter.png">Twitter</a>
+                            </li>
+
+                            <li>
+                                <a target="_blank" href="https://www.instagram.com/___adaa.___/"><img src="images/instagram.png">Instagram</a>
+                            </li>
+
+                            <li>
+                                <a target="_blank" href="https://web.facebook.com/Wiz.Kane.47/"><img src="images/facebook.png">Facebook</a>
+                            </li>
+                            
+                             <li>
+                                <a href="images/snap_code.JPG"><img src="images/snap.png">Snapchat</a>
+                            </li>
+                        </ul>
+                </div>
+            </footer>  
+            <p align="center">Copyright &copy; Adams DeRiv 2020 </p>	
+</body>
+</html>
